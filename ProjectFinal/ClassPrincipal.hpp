@@ -16,7 +16,11 @@ public:
 	void from_csv(std::string nombreArchivo, char separacion, int header) {};
 	void to_csv(std::string nombreArchivo, char separacion, int header) {};
 	void indexing(int numeroColumna) {};
-	size_t seleccion() { int fila; return fila; };
+	size_t seleccion_busqueda(int numeroColumna) { int fila; return fila;};
+	void campos_busqueda (){};
+	size_t * NuevoDF_busquedas(){};
+	
+
 
 };
 
