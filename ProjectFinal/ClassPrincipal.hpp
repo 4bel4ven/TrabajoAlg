@@ -1,30 +1,51 @@
 #pragma once
-#include <string>
-#include "arbol_index.hpp"
 
 #ifndef _LIBRERIASDF_HPP_
 #define _LIBRERIASDF_HPP_
+
+#include <string>
+#include <vector>
+#include "arbol_index.hpp"
+
+template<typename T>
 class libreriaDF {
 private:
-	size_t* arregloColumnas;
+	std::vector<Std::vector<T>>* arregloColumnas;
+	std::vector<Std::vector<T>>* arregloIndexaciones; //aquí estará indexada cada columna
 	size_t* cantidad;
-
 public:
 	
-	libreriaDF() {};
+	libreriaDF() {
+		cantidad = new size_t(0);
+		arregloColumnas = nullptr;
+		arregloIndexaciones = nullptr;
+		};
 	~libreriaDF() {};
 
 	void from_csv(std::string nombreArchivo, char separacion, int header) {};
 	void to_csv(std::string nombreArchivo, char separacion, int header) {};
-	void indexing(int numeroColumna) {};
-	size_t seleccion_busqueda(int numeroColumna) { int fila; return fila;};
+	
+	void indexacolumna_numero(unsigned int numeroColumna) { //usar arbol
+		std::vector<int> *columna = nullptr;
+		columna = arregloColumnas[numeroColumna];
+
+
+	};
+	void indexacolumna_float(unsigned int numeroColumna){
+		std::vector<int> *columna = nullptr;
+		columna = arregloColumnas[numeroColumna];
+	}
+
+	void indexacolumna_caracter(unsigned int numeroColumna){ //usar hash
+
+	}
+
+	size_t seleccion_busqueda_numero(int numeroColumna, size_t valor) { int fila; return fila;};
+	size_t seleccion_busqueda_string(int numeroColumna, std::string caracter){};
+
 	void campos_busqueda (){};
 	size_t * NuevoDF_busquedas(){};
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> be0d7af831dd78d511f1b0c005e08b4d86fb472e
 
 
 };

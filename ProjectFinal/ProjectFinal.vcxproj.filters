@@ -18,5 +18,8 @@
     <ClInclude Include="ClassPrincipal.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="arbol_index.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
