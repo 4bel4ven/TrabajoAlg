@@ -126,6 +126,9 @@
     <ClInclude Include="arbol_index.hpp" />
     <ClInclude Include="ClassPrincipal.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
