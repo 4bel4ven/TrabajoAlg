@@ -1,1 +1,4 @@
-﻿
+﻿  Source.cpp
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Header.hpp(93,20): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Source.cpp(4,13): warning C4326:  return type of 'main' should be 'int' instead of 'void'
+  ProjectFinal.vcxproj -> E:\alg_est\tf_cursoAlg\ProjectFinal\Debug\ProjectFinal.exe

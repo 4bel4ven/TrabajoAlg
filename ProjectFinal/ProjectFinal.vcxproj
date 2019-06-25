@@ -123,8 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="arbol_index.hpp" />
-    <ClInclude Include="ClassPrincipal.hpp" />
+    <ClInclude Include="hashtable.hpp" />
+    <ClInclude Include="arbol_AVL.hpp" />
+    <ClInclude Include="Header.hpp" />
+    <ClInclude Include="libreriaDF.hpp" />
+    <ClInclude Include="valor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
