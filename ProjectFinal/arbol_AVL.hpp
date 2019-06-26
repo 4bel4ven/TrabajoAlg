@@ -4,6 +4,7 @@
 
 template <typename T, typename R = T>
 class AVLTree {
+
 	struct Node {
 		T     e;
 		Node* l;
@@ -76,10 +77,12 @@ class AVLTree {
 		balance(n);
 		n->updateH();
 	}
+
 public:
+
 	AVLTree(std::function<R(T)> key = [](T a) { return a; })
 		: root(nullptr), length(0), key(key) {}
-	~AVLTree() { destroy(root); }
+	~AVLTree() { }
 
 	int Height() {
 		return Node::height(root);
@@ -91,5 +94,5 @@ public:
 		add(root, e);
 		++length;
 	}
-
+	
 };

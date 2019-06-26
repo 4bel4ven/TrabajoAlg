@@ -18,11 +18,11 @@ private:
 
 	std::vector<int> tiposdevalores;
 
-	std::vector< hashtable> busquedaString;
+	std::vector< std::pair<int,hashtable>> busquedaString;  //son pares para saber qué columna son
 
-	std::vector<AVLTree<int*>> busquedaInt;
+	std::vector<std::pair<int,AVLTree<int>>> busquedaInt;
 
-	std::vector<AVLTree<float*>> busquedaFloat;
+	std::vector<std::pair<int,AVLTree<float>>> busquedaFloat;
 
 public:
 
@@ -105,12 +105,12 @@ void Clibreria::tiposdevalor()
 	for (int i = 0; i < tupla[0].size(); i++)
 	{
 	int valor = 3;
-		while (valor >= 3 || valor < 0) {
+		do {
 			std::cout << "\n[0]entero [1]flotante [2]cadena de texto\nintroduzca el tipo de variable de la columna n " << i + 1 << " :";
 			std::cin >> valor;
 			if (valor >= 3 || valor < 0)
 				std::cout << "\nERROR, introduzca uno de los valores señalados";
-		}
+		} while (valor >= 3 || valor < 0);
 		tiposdevalores.push_back(valor);
 	}
 }
@@ -120,36 +120,68 @@ void Clibreria::indexar()
 	for (int i = 0; i < tiposdevalores.size(); i++) {
 
 		int opcion = tiposdevalores.at(i);
+		std::string tempStr; ///convertí a string normal
 
-		int intfromStr;
-		float floatfromStr;
 
-		AVLTree<int> tempArbolInt;
-		AVLTree<float> tempArbolFlot;
-
-		std::string tempStr ; ///convertí a string normal
-
-		
-
-		switch (opcion) {
-		case 0: //enteros
-			for (int j = 0; j < tupla.at(0).size(); j++) {
+		if (opcion == 0) {
+			int intfromStr;
+			AVLTree<int> tempArbolInt;
+			std::pair<int, AVLTree<int>> Pos_tempArbolInt;
+			
+			for (int j = 0; j < tupla.size(); j++) {
 				tempStr = tupla[j][i];
 				intfromStr = std::stoi(tempStr); ///quité *
 				tempArbolInt.Add(intfromStr);
-			}
-			delete (&tempArbolInt);
-			break;
-		case 1: //flotantes
-			for (int j = 0; j < tupla.at(0).size(); j++) {
+			};
+			Pos_tempArbolInt.first=i;
+			Pos_tempArbolInt.second = tempArbolInt;
+
+			busquedaInt.push_back(Pos_tempArbolInt);
+		}
+		else if(opcion == 1) {
+
+			float floatfromStr;
+			AVLTree<float> tempArbolFlot;
+			std::pair<int, AVLTree<float>> Pos_tempArbolFlot;
+
+			for (int j = 0; j < tupla.size(); j++) {
 				tempStr = tupla[j][i];
 				floatfromStr = std::stof(tempStr); ///quité *
 				tempArbolFlot.Add(floatfromStr);
-			}
-			delete (&tempArbolFlot);
+			};
+			Pos_tempArbolFlot.first =i;
+			Pos_tempArbolFlot.second = tempArbolFlot;
+
+			busquedaFloat.push_back(Pos_tempArbolFlot);
+		}
+		else {
+
+		hashtable tempArbolString;
+		tempArbolString.iniciaHash();
+		std::pair<int, hashtable> Pos_tempArbolString;
+
+			for (int j = 0; j < tupla.size(); j++) {
+				tempStr = tupla[j][i];
+				tempArbolString.insercion(tempStr);
+			};
+			Pos_tempArbolString.first = i;
+			Pos_tempArbolString.second = tempArbolString;
+
+			busquedaString.push_back(Pos_tempArbolString);
+
+		};
+		switch (opcion) {
+		
+		case 0: //enteros
+			
+			
+			
+
+			break;
+		case 1: //flotantes
+		
 			break;
 		case 2: //string
-
 			break;
 
 		}

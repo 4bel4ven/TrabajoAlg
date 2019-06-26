@@ -12,7 +12,7 @@
 class hashtable {
 private:
 	std::vector <std::string > nombres;
-	std::vector<std::list<std::string>*> hash;
+	std::vector <std::list<std::string>*> hash;
 public:
 	void iniciaHash() {
 		for (int c = 0; c < 10; ++c)
@@ -28,7 +28,7 @@ public:
 	}
 	void insercion(std::string value) {
 		int key = obtenerHash(value);
-		hash[key]->push_back(value);
+		hash.at(key)->push_back(value);
 	}
 
 
@@ -40,6 +40,11 @@ public:
 			if (*i == v)band = true;
 		}
 		return band;
+	}
+
+	void erase() {
+		nombres.clear();
+		hash.clear();
 	}
 };
 
