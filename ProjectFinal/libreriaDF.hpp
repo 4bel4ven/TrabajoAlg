@@ -7,8 +7,7 @@
 #include <string>
 #include <vector>
 #include <list>
-#include "hashtable.hpp"
-#include "arbol_valor.hpp"
+
 
 class libreriaDF 
 {

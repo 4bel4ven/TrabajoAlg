@@ -21,13 +21,13 @@
     <ClInclude Include="valor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="arbol_AVL.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="hashtable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Libreria.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

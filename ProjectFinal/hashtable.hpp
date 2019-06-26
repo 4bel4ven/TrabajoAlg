@@ -31,7 +31,7 @@ public:
 		hash[key]->push_back(value);
 	}
 
-	
+
 
 	bool existe(std::string v) {
 		int t = obtenerHash(v);
@@ -41,6 +41,6 @@ public:
 		}
 		return band;
 	}
-}
+};
 
 #endif // !_HASHTABLE_HPP_

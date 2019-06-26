@@ -1,5 +1,5 @@
-,released,colour,year,age,sex,employed,citizen,checks
-1,Yes,White,2002,21,Male,Yes,Yes,3
-2,No,Black,1999,17,Male,Yes,Yes,3
-3,Yes,White,2000,24,Male,Yes,Yes,3
-4,No,Black,2000,46,Male,Yes,Yes,1
+2002,0.254,Male
+1999,0.233,Male
+2000,0.247,Male
+2000,0.248,Male
+2001,0.258,Female

@@ -1,9 +1,11 @@
 #include <iostream>
-#include "Header.hpp"
+#include "Libreria.hpp"
 
 void main() {
-	libreria nuevo;
+	Clibreria nuevo;
 
-	nuevo.pedirdatos();
+//	nuevo.pedirdatos();
+	nuevo.from_csv("Arrests5.csv", 1, ',');
 	nuevo.tiposdevalor();
+	nuevo.indexar();
 };
