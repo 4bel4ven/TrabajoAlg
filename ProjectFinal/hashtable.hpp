@@ -11,8 +11,8 @@
 
 class hashtable {
 private:
-	std::vector <std::string > nombres;
 	std::vector <std::list<std::string>*> hash;
+	std::vector<int> posi;
 public:
 	void iniciaHash() {
 		for (int c = 0; c < 10; ++c)
@@ -26,7 +26,8 @@ public:
 		}
 		return sum % 10;
 	}
-	void insercion(std::string value) {
+	void insercion(std::string value,int pos) {
+
 		int key = obtenerHash(value);
 		hash.at(key)->push_back(value);
 	}
@@ -43,7 +44,6 @@ public:
 	}
 
 	void erase() {
-		nombres.clear();
 		hash.clear();
 	}
 };

@@ -25,6 +25,9 @@ class AVLTree {
 		void set_pos(int pos,Node* n) {
 			n->posi.push_back(pos);
 		}
+		std::vector<int> get_posNode() {
+			return posi;
+		}
 	};
 
 	Node* root;
@@ -88,9 +91,19 @@ class AVLTree {
 		step1:
 		n->updateH();
 	}
-	void find(Node*& n, T e) {
+	Node* find(Node*& n, T e) {
+		if (n != nullptr) {
+			if (key(e) == key(n->e)) {
+				return n;
+			}
+			else if (key(e) < key(n->e)) {
+				return find(n->l, e);
+			}
+			else if (key(e) > key(n->e)) {
+				return find(n->r, e);
+			};
+		};
 	}
-
 public:
 
 	AVLTree(std::function<R(T)> key = [](T a) { return a; })
@@ -107,13 +120,56 @@ public:
 		add(root, e,pos);
 		++length;
 	}
-	void Find(T e){
-		find(root, e);
+	std::vector<int> Find(T e){
+		Node* tempNode;
+		tempNode=find(root, e);
+		return tempNode.get_posNode();
 	}
-	void greater_than(T e) {
+
+	std::vector<int> greater_than(Node*& n) {
+
+		if (n != nullptr) {
+			if (key(e) == key(n->e)) {
+				return n;
+			}
+			else if (key(e) < key(n->e)) {
+				return find(n->l, e);
+			}
+			else if (key(e) > key(n->e)) {
+				return find(n->r, e);
+			};
+		};
+	}
+
+	std::vector<int> smaller_than(Node* n, std::vector<int> valores) {
+		if (n->l != nullptr) {
+			valores= smaller_than(n->l, valores);
+		}if (n->l == nullptr) {
+			for (int i = 0; i < n->posi.size(); i++) {
+				return valores.push_back(n->posi.at(0));
+			};
+		}
+		if (n->r != nullptr) {
+			valores = smaller_than(n->l, valores);
+		}if (n->r == nullptr) {
+			for (int i = 0; i < n->posi.size(); i++) {
+				return valores.push_back(n->posi.at(0));
+			};
+		}
 
 	}
-	void smaller_than(T e) {
 
+	std::vector<int> Greater_Than(T e) {
+		Node* inicia = new Node;
+		inicia = find(n, e);
+		inicia = inicia->r;
+		return greater_than(inicia);
+	}
+
+	std::vector<int> Smaller_Than(T e) {
+		Node* inicia = new Node;
+		inicia = find(n, e);
+		inicia = inicia->l;
+		return smaller_than(inicia);
 	}
 };

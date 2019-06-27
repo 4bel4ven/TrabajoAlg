@@ -1,11 +1,13 @@
 ﻿  Source.cpp
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(113,20): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(128,20): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(139,22): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(155,22): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(171,22): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(216,20): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(249,20): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(250,21): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\arbol_AVL.hpp(139,17): error C3861:  'n': identifier not found
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\arbol_AVL.hpp(150): message :  see reference to class template instantiation 'AVLTree<T,R>' being compiled
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\arbol_AVL.hpp(146,17): error C3861:  'n': identifier not found
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(119,20): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(134,20): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(145,22): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(161,22): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(177,22): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(222,20): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(255,20): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(256,21): warning C4018:  '<': signed/unsigned mismatch
 E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Source.cpp(5,13): warning C4326:  return type of 'main' should be 'int' instead of 'void'
-  ProjectFinal.vcxproj -> E:\alg_est\tf_cursoAlg\ProjectFinal\Debug\ProjectFinal.exe

@@ -15,11 +15,11 @@
 class Clibreria {
 
 private:
-
+	//tupla inicial
 	std::vector<std::vector<std::string>> tupla;
-
+	//tupla con seleccion del usuario
 	std::vector<std::vector<std::string>> tuplaSeleccionada;
-
+	//alberga los tipos de valores de cada columna
 	std::vector<int> tiposdevalores;
 	//son pares (int guarda la columna y el otro la indexación de dicha columna)
 	std::vector< std::pair<int,hashtable>> busquedaString; 
@@ -42,7 +42,11 @@ public:
 	void indexar();
 	void iniciarSeleccion();
 	std::vector<std::vector<std::string>> seleccion(std::vector<int> column);  ///pasar a private
+	void printPos(std::vector<int> posiciones);  ///pasar a private
 	void imprimir();
+	std::vector<int> filtrado_mayorque(int column, std::string valor, std::vector<std::vector<std::string>>tuplaF);
+	void filtrado_menorque(int column, std::string valor, std::vector<std::vector<std::string>>tuplaF);
+	void filtrado_igualque(int column, std::string valor, std::vector<std::vector<std::string>>tuplaF);
 	void filtrado();
 	//void to_csv(std::string nombreArchivo);
 
@@ -172,7 +176,7 @@ void Clibreria::indexar()
 
 			for (int j = 0; j < tupla.size(); j++) {
 				tempStr = tupla[j][i];
-				tempArbolString.insercion(tempStr);
+				tempArbolString.insercion(tempStr,j);
 			};
 			Pos_tempArbolString.first = i;
 			Pos_tempArbolString.second = tempArbolString;
@@ -256,12 +260,26 @@ void Clibreria::printTu(std::vector<std::vector<std::string>> tuplaPRINT) {
 		};
 	};
 }
+void Clibreria::printPos(std::vector<int> posiciones) {
+
+}
 
 void Clibreria::imprimir() {
 	printTu(tupla);
 }
 
-void Clibreria::filtrado() {
+std::vector<int> Clibreria::filtrado_mayorque(int column, std::string valor, std::vector<std::vector<std::string>>tuplaF) {
+	std::vector<int> tempLista;
+	if (tiposdevalores.at(column) == 0) {
+	
+	}
+	else if (tiposdevalores.at(column) == 1) {
+	};
+}
+void Clibreria::filtrado_menorque(int column, std::string valor,std::vector<std::vector<std::string>>tuplaF) {
+
+}
+void Clibreria::filtrado_igualque(int column, std::string valor,std::vector<std::vector<std::string>>tuplaF) {
 
 }
 
