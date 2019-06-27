@@ -10,14 +10,20 @@ class AVLTree {
 		Node* l;
 		Node* r;
 		int   h;
+		std::vector<int> posi;
 
-		Node(T e) : e(e), l(nullptr), r(nullptr), h(0) {}
+		Node(T e, int pos) : e(e), l(nullptr), r(nullptr), h(0) { posi.push_back(pos); }
 
 		static int height(Node* n) {
 			return n == nullptr ? -1 : n->h;
 		}
+
 		void updateH() {
 			h = std::max(Node::height(l), Node::height(r)) + 1;
+		}
+
+		void set_pos(int pos,Node* n) {
+			n->posi.push_back(pos);
 		}
 	};
 
@@ -63,19 +69,26 @@ class AVLTree {
 			rotAB(n);
 		}
 	}
-	void add(Node*& n, T e) {
+	void add(Node*& n, T e, int pos) {
 		if (n == nullptr) {
-			n = new Node(e);
+			n = new Node(e,pos);
 			return;
 		}
 		else if (key(e) < key(n->e)) {
-			add(n->l, e);
+			add(n->l, e,pos);
 		}
-		else {
-			add(n->r, e);
+		else if (key(e) > key(n->e)){
+			add(n->r, e,pos);
+		}
+		else if (key(e) == key(n->e)) {
+			n->set_pos(pos,n);
+			goto step1;
 		}
 		balance(n);
+		step1:
 		n->updateH();
+	}
+	void find(Node*& n, T e) {
 	}
 
 public:
@@ -90,9 +103,17 @@ public:
 	int Size() {
 		return length;
 	}
-	void Add(T e) {
-		add(root, e);
+	void Add(T e, int pos) {
+		add(root, e,pos);
 		++length;
 	}
-	
+	void Find(T e){
+		find(root, e);
+	}
+	void greater_than(T e) {
+
+	}
+	void smaller_than(T e) {
+
+	}
 };

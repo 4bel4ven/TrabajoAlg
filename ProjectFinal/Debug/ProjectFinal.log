@@ -1,8 +1,11 @@
 ﻿  Source.cpp
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(105,20): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(120,20): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(131,22): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(147,22): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(163,22): warning C4018:  '<': signed/unsigned mismatch
-E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Source.cpp(4,13): warning C4326:  return type of 'main' should be 'int' instead of 'void'
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(113,20): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(128,20): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(139,22): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(155,22): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(171,22): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(216,20): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(249,20): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Libreria.hpp(250,21): warning C4018:  '<': signed/unsigned mismatch
+E:\alg_est\tf_cursoAlg\ProjectFinal\ProjectFinal\Source.cpp(5,13): warning C4326:  return type of 'main' should be 'int' instead of 'void'
   ProjectFinal.vcxproj -> E:\alg_est\tf_cursoAlg\ProjectFinal\Debug\ProjectFinal.exe

@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="libreriaDF.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="valor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -3,6 +3,7 @@
 #define _LIBRERIA_HPP_
 
 #include <stdio.h>
+#include <iostream>
 #include <vector>
 #include <string>
 #include <sstream> 
@@ -14,26 +15,35 @@
 class Clibreria {
 
 private:
-	std::vector<std::vector<std::string>> tupla;/// quité *
+
+	std::vector<std::vector<std::string>> tupla;
+
+	std::vector<std::vector<std::string>> tuplaSeleccionada;
 
 	std::vector<int> tiposdevalores;
+	//son pares (int guarda la columna y el otro la indexación de dicha columna)
+	std::vector< std::pair<int,hashtable>> busquedaString; 
+	//son pares (int guarda la columna y el otro la indexación de dicha columna)
+	std::vector<std::pair<int,AVLTree<int>>> busquedaInt; //son pares 
+	//son pares (int guarda la columna y el otro la indexación de dicha columna)
+	std::vector<std::pair<int,AVLTree<float>>> busquedaFloat;//son pares 
 
-	std::vector< std::pair<int,hashtable>> busquedaString;  //son pares para saber qué columna son
-
-	std::vector<std::pair<int,AVLTree<int>>> busquedaInt;
-
-	std::vector<std::pair<int,AVLTree<float>>> busquedaFloat;
-
+	///-------------funciones privadas------------------///
+	void printTu(std::vector<std::vector<std::string>> tuplaPRINT); ///pasar a private
 public:
 
 	Clibreria() {
 	}
 	~Clibreria() {}
 
-	void from_csv(std::string nombreArchivo, int header, char separador);
+	void from_csv(std::string nombreArchivo, int header, char separador);  ///pasar a private
 	void pedirdatos();
 	void tiposdevalor();
 	void indexar();
+	void iniciarSeleccion();
+	std::vector<std::vector<std::string>> seleccion(std::vector<int> column);  ///pasar a private
+	void imprimir();
+	void filtrado();
 	//void to_csv(std::string nombreArchivo);
 
 };
@@ -117,7 +127,7 @@ void Clibreria::tiposdevalor()
 
 void Clibreria::indexar()
 {
-	for (int i = 0; i < tiposdevalores.size(); i++) {
+	for (int i = 0; i < tiposdevalores.size(); i++) { //columnas
 
 		int opcion = tiposdevalores.at(i);
 		std::string tempStr; ///convertí a string normal
@@ -128,10 +138,10 @@ void Clibreria::indexar()
 			AVLTree<int> tempArbolInt;
 			std::pair<int, AVLTree<int>> Pos_tempArbolInt;
 			
-			for (int j = 0; j < tupla.size(); j++) {
+			for (int j = 0; j < tupla.size(); j++) { //filas
 				tempStr = tupla[j][i];
 				intfromStr = std::stoi(tempStr); ///quité *
-				tempArbolInt.Add(intfromStr);
+				tempArbolInt.Add(intfromStr,j);
 			};
 			Pos_tempArbolInt.first=i;
 			Pos_tempArbolInt.second = tempArbolInt;
@@ -147,7 +157,7 @@ void Clibreria::indexar()
 			for (int j = 0; j < tupla.size(); j++) {
 				tempStr = tupla[j][i];
 				floatfromStr = std::stof(tempStr); ///quité *
-				tempArbolFlot.Add(floatfromStr);
+				tempArbolFlot.Add(floatfromStr,j);
 			};
 			Pos_tempArbolFlot.first =i;
 			Pos_tempArbolFlot.second = tempArbolFlot;
@@ -170,23 +180,91 @@ void Clibreria::indexar()
 			busquedaString.push_back(Pos_tempArbolString);
 
 		};
-		switch (opcion) {
-		
-		case 0: //enteros
-			
-			
-			
-
-			break;
-		case 1: //flotantes
-		
-			break;
-		case 2: //string
-			break;
-
-		}
 	}
 }
+
+void Clibreria::iniciarSeleccion() {
+	int cantidad,valor;
+	std::vector<int> valores;
+	std::cout << "Cuantas columnas quiere seleccíonar: ";
+	std::cin >> cantidad;
+	std::cout << "\n---OJO: aparecerán las columnas en el orden que las escribas---";
+	for (int i = 0; i < cantidad; i++) {
+		if (i == 0) {
+			std::cout << "\nescribe la " << i + 1 << "° columna: ";
+			std::cin >> valor;
+			valores.push_back(valor);
+		}
+		else {
+			step2:
+			std::cout << "\nescribe la " << i + 1 << "° columna: ";
+			std::cin >> valor;
+			for (int j = 0; j < i; j++) {
+				if (valor == valores.at(j)) {
+					std::cout << "---ya has escrito esta columna---";
+					goto step2;
+				};
+			};
+			valores.push_back(valor);
+		};
+	}
+	tuplaSeleccionada = seleccion(valores);
+}
+
+std::vector<std::vector<std::string>> Clibreria::seleccion(std::vector<int> column) {
+	
+	std::vector<std::vector<std::string>> tuplaTemp;
+
+	for (int i = 0; i < column.size(); i++) {
+		int numeroCol = column.at(i);
+		tuplaTemp.push_back(tupla.at(numeroCol));
+	};
+	return tuplaTemp;
+		/*
+		int j = 0;
+		int tipovalor = tiposdevalores.at(i);
+		if (tipovalor == 0) {
+			while (numeroCol != busquedaInt.at(j).first) {
+				++j;
+			}
+
+
+		}
+		else if (tipovalor == 1) {
+			while (numeroCol != busquedaFloat.at(j).first) {
+				++j;
+			}
+		}
+		else {
+			while (numeroCol != busquedaString.at(j).first) {
+				++j;
+			}
+		};
+		for (int j = 0; j < tiposdevalores.size(); j++) {
+		};*/
+}
+
+void Clibreria::printTu(std::vector<std::vector<std::string>> tuplaPRINT) {
+	std::string valor;
+	int valor1 = tuplaPRINT.at(0).size(); //col
+	int valor2 = tuplaPRINT.size(); //fila
+	for (int i = 0; i < tuplaPRINT.size(); i++) { //filas
+		for (int j = 0; j < tuplaPRINT.at(0).size(); j++) { //columnas
+			valor = tuplaPRINT[i][j];
+			if (j==0 ) std::cout << "\n" << valor;
+			else std::cout << "\t" << valor;
+		};
+	};
+}
+
+void Clibreria::imprimir() {
+	printTu(tupla);
+}
+
+void Clibreria::filtrado() {
+
+}
+
 
 //void to_csv(std::string nombreArchivo) {
 //}

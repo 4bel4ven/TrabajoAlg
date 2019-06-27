@@ -126,7 +126,6 @@
     <ClInclude Include="hashtable.hpp" />
     <ClInclude Include="arbol_AVL.hpp" />
     <ClInclude Include="Libreria.hpp" />
-    <ClInclude Include="libreriaDF.hpp" />
     <ClInclude Include="valor.hpp" />
   </ItemGroup>
   <ItemGroup>
