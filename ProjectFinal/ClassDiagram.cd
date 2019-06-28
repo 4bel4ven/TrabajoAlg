@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="hashtable" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAKAAAIAAAAAAAAAAAAAUAAQAAAAAA=</HashCode>
+      <FileName>hashtable.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AVLTree&lt;T, R&gt;" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="AVLTree&lt;T, R&gt;::Node" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>arbol_AVL.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAABAAggABABEAkAEQYAABIAAAACAAAAAACAAA=</HashCode>
+      <FileName>arbol_AVL.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clibreria" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAACACAQAgAAgAABAEoAgBAACQAAAAABRIAAAgACQ=</HashCode>
+      <FileName>Libreria.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
